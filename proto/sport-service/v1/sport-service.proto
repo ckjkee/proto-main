@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package sport;
+
+option go_package = "proto-main/gen/sport-service/v1;sport_v1";
+
+import "google/protobuf/timestamp.proto";
+
+message Market {
+    int64 id = 1;
+    bool enabled = 2;
+    google.protobuf.Timestamp deleted_at = 3;
+}
+
+service SportInstrumentService {
+    rpc ViewMarkets(ViewMarketsRequest) returns (ViewMarketsResponse);
+}
+
+message ViewMarketsRequest {
+    repeated string user_roles = 1;
+}
+
+message ViewMarketsResponse {
+    
+}

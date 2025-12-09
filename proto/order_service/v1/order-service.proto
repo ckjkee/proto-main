@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "github.com/ckjkee/proto-main/gen/order-service/v1;order_v1";
+
+enum OrderStatus {
+    ORDER_STATUS_UNSPECIFIED = 0;
+    ORDER_STATUS_CREATED = 1;
+    ORDER_STATUS_PENDING = 2;
+    ORDER_STATUS_FILLED = 3;
+    ORDER_STATUS_CANCELLED = 4;
+    ORDER_STATUS_REJECTED = 5;
+}
+
+enum OrderType {
+    ORDER_TYPE_UNSPECIFIED = 0;
+    ORDER_TYPE_BUY = 1;
+    ORDER_TYPE_SELL = 2;
+}
+
+service OrderService {
+    rpc GetOrderStatus(GetOrderStatusRequest) returns (GetOrderStatusResponse);
+    rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+// Get Order
+
+message GetOrderStatusRequest {
+    int64 order_id = 1;
+    int64 user_id = 2;
+}
+
+message GetOrderStatusResponse {
+    OrderStatus status = 1;
+}
+
+// Create order
+
+message CreateOrderRequest {
+    int64 user_id = 1;
+    int64 market_id = 2;
+    OrderType order_type = 3;
+    double price = 4;
+    double quantity = 5;
+}
+
+message CreateOrderResponse {
+    int64 order_id = 1;
+    OrderStatus order_status = 2;
+}
