@@ -1,4 +1,4 @@
-module proto-main
+module github.com/ckjkee/proto-main
 
 go 1.25.4
 
