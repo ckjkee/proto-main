@@ -4,6 +4,8 @@ package order;
 
 option go_package = "github.com/ckjkee/proto-main/gen/order-service/v1;order_v1";
 
+import "buf/validate/validate.proto";
+
 enum OrderStatus {
     ORDER_STATUS_UNSPECIFIED = 0;
     ORDER_STATUS_CREATED = 1;
@@ -27,8 +29,8 @@ service OrderService {
 // Get Order
 
 message GetOrderStatusRequest {
-    int64 order_id = 1;
-    int64 user_id = 2;
+    int64 order_id = 1 [(buf.validate.field).int64.gt = 0];
+    int64 user_id = 2 [(buf.validate.field).int64.gt = 0];
 }
 
 message GetOrderStatusResponse {
@@ -38,11 +40,11 @@ message GetOrderStatusResponse {
 // Create order
 
 message CreateOrderRequest {
-    int64 user_id = 1;
-    int64 market_id = 2;
-    OrderType order_type = 3;
-    double price = 4;
-    double quantity = 5;
+    int64 user_id = 1 [(buf.validate.field).int64.gt = 0];
+    int64 market_id = 2 [(buf.validate.field).int64.gt = 0];
+    OrderType order_type = 3 [(buf.validate.field).enum.defined_only = true];
+    double price = 4 [(buf.validate.field).double.gt = 0];
+    double quantity = 5 [(buf.validate.field).double.gt = 0];
 }
 
 message CreateOrderResponse {
