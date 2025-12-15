@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package order;
 
-option go_package = "github.com/ckjkee/proto_main/gen/order_service/v1;order_v1";
+option go_package = "github.com/ckjkee/proto-main/gen/order_service/v1;order_v1";
 
 enum OrderStatus {
     ORDER_STATUS_UNSPECIFIED = 0;
