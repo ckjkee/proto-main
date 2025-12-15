@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.0
 // - protoc             (unknown)
-// source: sport-service/v1/sport-service.proto
+// source: sport_service/v1/sport_service.proto
 
 package sport_v1
 
@@ -115,5 +115,5 @@ var SportInstrumentService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "sport-service/v1/sport-service.proto",
+	Metadata: "sport_service/v1/sport_service.proto",
 }

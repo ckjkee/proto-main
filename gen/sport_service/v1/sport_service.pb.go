@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        (unknown)
-// source: sport-service/v1/sport-service.proto
+// source: sport_service/v1/sport_service.proto
 
 package sport_v1
 
@@ -166,7 +166,7 @@ var File_sport_service_v1_sport_service_proto protoreflect.FileDescriptor
 
 const file_sport_service_v1_sport_service_proto_rawDesc = "" +
 	"\n" +
-	"$sport-service/v1/sport-service.proto\x12\x05sport\x1a\x1fgoogle/protobuf/timestamp.proto\"m\n" +
+	"$sport_service/v1/sport_service.proto\x12\x05sport\x1a\x1fgoogle/protobuf/timestamp.proto\"m\n" +
 	"\x06Market\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
 	"\aenabled\x18\x02 \x01(\bR\aenabled\x129\n" +

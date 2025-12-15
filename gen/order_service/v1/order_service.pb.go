@@ -2,12 +2,11 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        (unknown)
-// source: order_service/v1/order-service.proto
+// source: order_service/v1/order_service.proto
 
 package order_v1
 
 import (
-	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -357,19 +356,19 @@ var File_order_service_v1_order_service_proto protoreflect.FileDescriptor
 
 const file_order_service_v1_order_service_proto_rawDesc = "" +
 	"\n" +
-	"$order_service/v1/order-service.proto\x12\x05order\x1a\x1bbuf/validate/validate.proto\"]\n" +
-	"\x15GetOrderStatusRequest\x12\"\n" +
-	"\border_id\x18\x01 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\aorderId\x12 \n" +
-	"\auser_id\x18\x02 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x06userId\"D\n" +
+	"$order_service/v1/order_service.proto\x12\x05order\"K\n" +
+	"\x15GetOrderStatusRequest\x12\x19\n" +
+	"\border_id\x18\x01 \x01(\x03R\aorderId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x03R\x06userId\"D\n" +
 	"\x16GetOrderStatusResponse\x12*\n" +
-	"\x06status\x18\x01 \x01(\x0e2\x12.order.OrderStatusR\x06status\"\xe9\x01\n" +
-	"\x12CreateOrderRequest\x12 \n" +
-	"\auser_id\x18\x01 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x06userId\x12$\n" +
-	"\tmarket_id\x18\x02 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\bmarketId\x129\n" +
+	"\x06status\x18\x01 \x01(\x0e2\x12.order.OrderStatusR\x06status\"\xad\x01\n" +
+	"\x12CreateOrderRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n" +
+	"\tmarket_id\x18\x02 \x01(\x03R\bmarketId\x12/\n" +
 	"\n" +
-	"order_type\x18\x03 \x01(\x0e2\x10.order.OrderTypeB\b\xbaH\x05\x82\x01\x02\x10\x01R\torderType\x12$\n" +
-	"\x05price\x18\x04 \x01(\x01B\x0e\xbaH\v\x12\t!\x00\x00\x00\x00\x00\x00\x00\x00R\x05price\x12*\n" +
-	"\bquantity\x18\x05 \x01(\x01B\x0e\xbaH\v\x12\t!\x00\x00\x00\x00\x00\x00\x00\x00R\bquantity\"g\n" +
+	"order_type\x18\x03 \x01(\x0e2\x10.order.OrderTypeR\torderType\x12\x14\n" +
+	"\x05price\x18\x04 \x01(\x01R\x05price\x12\x1a\n" +
+	"\bquantity\x18\x05 \x01(\x01R\bquantity\"g\n" +
 	"\x13CreateOrderResponse\x12\x19\n" +
 	"\border_id\x18\x01 \x01(\x03R\aorderId\x125\n" +
 	"\forder_status\x18\x02 \x01(\x0e2\x12.order.OrderStatusR\vorderStatus*\xaf\x01\n" +
@@ -386,7 +385,7 @@ const file_order_service_v1_order_service_proto_rawDesc = "" +
 	"\x0fORDER_TYPE_SELL\x10\x022\xa3\x01\n" +
 	"\fOrderService\x12M\n" +
 	"\x0eGetOrderStatus\x12\x1c.order.GetOrderStatusRequest\x1a\x1d.order.GetOrderStatusResponse\x12D\n" +
-	"\vCreateOrder\x12\x19.order.CreateOrderRequest\x1a\x1a.order.CreateOrderResponseB<Z:github.com/ckjkee/proto-main/gen/order-service/v1;order_v1b\x06proto3"
+	"\vCreateOrder\x12\x19.order.CreateOrderRequest\x1a\x1a.order.CreateOrderResponseB<Z:github.com/ckjkee/proto-main/gen/order_service/v1;order_v1b\x06proto3"
 
 var (
 	file_order_service_v1_order_service_proto_rawDescOnce sync.Once
