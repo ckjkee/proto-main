@@ -177,8 +177,7 @@ const file_sport_service_v1_sport_service_proto_rawDesc = "" +
 	"user_roles\x18\x01 \x03(\tR\tuserRoles\"\x15\n" +
 	"\x13ViewMarketsResponse2^\n" +
 	"\x16SportInstrumentService\x12D\n" +
-	"\vViewMarkets\x12\x19.sport.ViewMarketsRequest\x1a\x1a.sport.ViewMarketsResponseB|\n" +
-	"\tcom.sportB\x11SportServiceProtoP\x01Z(proto-main/gen/sport-service/v1;sport_v1\xa2\x02\x03SXX\xaa\x02\x05Sport\xca\x02\x05Sport\xe2\x02\x11Sport\\GPBMetadata\xea\x02\x05Sportb\x06proto3"
+	"\vViewMarkets\x12\x19.sport.ViewMarketsRequest\x1a\x1a.sport.ViewMarketsResponseB*Z(proto-main/gen/sport-service/v1;sport_v1b\x06proto3"
 
 var (
 	file_sport_service_v1_sport_service_proto_rawDescOnce sync.Once
