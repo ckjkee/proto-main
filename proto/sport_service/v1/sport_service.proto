@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package sport;
 
-option go_package = "proto-main/gen/sport-service/v1;sport_v1";
+option go_package = "proto-main/gen/sport_service/v1;sport_v1";
 
 import "google/protobuf/timestamp.proto";
 
