@@ -8,8 +8,9 @@ import "google/protobuf/timestamp.proto";
 
 message Market {
     int64 id = 1;
-    bool enabled = 2;
-    google.protobuf.Timestamp deleted_at = 3;
+    string symbol = 2;
+    bool enabled = 3;
+    google.protobuf.Timestamp deleted_at = 4;
 }
 
 service SportInstrumentService {
@@ -21,5 +22,5 @@ message ViewMarketsRequest {
 }
 
 message ViewMarketsResponse {
-    
+    repeated Market markets = 1;
 }

@@ -25,8 +25,9 @@ const (
 type Market struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Enabled       bool                   `protobuf:"varint,2,opt,name=enabled,proto3" json:"enabled,omitempty"`
-	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	Symbol        string                 `protobuf:"bytes,2,opt,name=symbol,proto3" json:"symbol,omitempty"`
+	Enabled       bool                   `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
+	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,6 +67,13 @@ func (x *Market) GetId() int64 {
 		return x.Id
 	}
 	return 0
+}
+
+func (x *Market) GetSymbol() string {
+	if x != nil {
+		return x.Symbol
+	}
+	return ""
 }
 
 func (x *Market) GetEnabled() bool {
@@ -128,6 +136,7 @@ func (x *ViewMarketsRequest) GetUserRoles() []string {
 
 type ViewMarketsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Markets       []*Market              `protobuf:"bytes,1,rep,name=markets,proto3" json:"markets,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -162,20 +171,29 @@ func (*ViewMarketsResponse) Descriptor() ([]byte, []int) {
 	return file_sport_service_v1_sport_service_proto_rawDescGZIP(), []int{2}
 }
 
+func (x *ViewMarketsResponse) GetMarkets() []*Market {
+	if x != nil {
+		return x.Markets
+	}
+	return nil
+}
+
 var File_sport_service_v1_sport_service_proto protoreflect.FileDescriptor
 
 const file_sport_service_v1_sport_service_proto_rawDesc = "" +
 	"\n" +
-	"$sport_service/v1/sport_service.proto\x12\x05sport\x1a\x1fgoogle/protobuf/timestamp.proto\"m\n" +
+	"$sport_service/v1/sport_service.proto\x12\x05sport\x1a\x1fgoogle/protobuf/timestamp.proto\"\x85\x01\n" +
 	"\x06Market\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x18\n" +
-	"\aenabled\x18\x02 \x01(\bR\aenabled\x129\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n" +
+	"\x06symbol\x18\x02 \x01(\tR\x06symbol\x12\x18\n" +
+	"\aenabled\x18\x03 \x01(\bR\aenabled\x129\n" +
 	"\n" +
-	"deleted_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt\"3\n" +
+	"deleted_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt\"3\n" +
 	"\x12ViewMarketsRequest\x12\x1d\n" +
 	"\n" +
-	"user_roles\x18\x01 \x03(\tR\tuserRoles\"\x15\n" +
-	"\x13ViewMarketsResponse2^\n" +
+	"user_roles\x18\x01 \x03(\tR\tuserRoles\">\n" +
+	"\x13ViewMarketsResponse\x12'\n" +
+	"\amarkets\x18\x01 \x03(\v2\r.sport.MarketR\amarkets2^\n" +
 	"\x16SportInstrumentService\x12D\n" +
 	"\vViewMarkets\x12\x19.sport.ViewMarketsRequest\x1a\x1a.sport.ViewMarketsResponseB*Z(proto-main/gen/sport-service/v1;sport_v1b\x06proto3"
 
@@ -200,13 +218,14 @@ var file_sport_service_v1_sport_service_proto_goTypes = []any{
 }
 var file_sport_service_v1_sport_service_proto_depIdxs = []int32{
 	3, // 0: sport.Market.deleted_at:type_name -> google.protobuf.Timestamp
-	1, // 1: sport.SportInstrumentService.ViewMarkets:input_type -> sport.ViewMarketsRequest
-	2, // 2: sport.SportInstrumentService.ViewMarkets:output_type -> sport.ViewMarketsResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // 1: sport.ViewMarketsResponse.markets:type_name -> sport.Market
+	1, // 2: sport.SportInstrumentService.ViewMarkets:input_type -> sport.ViewMarketsRequest
+	2, // 3: sport.SportInstrumentService.ViewMarkets:output_type -> sport.ViewMarketsResponse
+	3, // [3:4] is the sub-list for method output_type
+	2, // [2:3] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_sport_service_v1_sport_service_proto_init() }
