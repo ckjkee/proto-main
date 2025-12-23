@@ -130,8 +130,8 @@ func (OrderType) EnumDescriptor() ([]byte, []int) {
 
 type GetOrderStatusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	OrderId       int64                  `protobuf:"varint,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
-	UserId        int64                  `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	OrderId       string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -166,18 +166,18 @@ func (*GetOrderStatusRequest) Descriptor() ([]byte, []int) {
 	return file_order_service_v1_order_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetOrderStatusRequest) GetOrderId() int64 {
+func (x *GetOrderStatusRequest) GetOrderId() string {
 	if x != nil {
 		return x.OrderId
 	}
-	return 0
+	return ""
 }
 
-func (x *GetOrderStatusRequest) GetUserId() int64 {
+func (x *GetOrderStatusRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
 type GetOrderStatusResponse struct {
@@ -226,11 +226,11 @@ func (x *GetOrderStatusResponse) GetStatus() OrderStatus {
 
 type CreateOrderRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	MarketId      int64                  `protobuf:"varint,2,opt,name=market_id,json=marketId,proto3" json:"market_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	MarketId      uint64                 `protobuf:"varint,2,opt,name=market_id,json=marketId,proto3" json:"market_id,omitempty"`
 	OrderType     OrderType              `protobuf:"varint,3,opt,name=order_type,json=orderType,proto3,enum=order.OrderType" json:"order_type,omitempty"`
-	Price         float64                `protobuf:"fixed64,4,opt,name=price,proto3" json:"price,omitempty"`
-	Quantity      float64                `protobuf:"fixed64,5,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	Price         int64                  `protobuf:"varint,4,opt,name=price,proto3" json:"price,omitempty"`
+	Quantity      int64                  `protobuf:"varint,5,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -265,14 +265,14 @@ func (*CreateOrderRequest) Descriptor() ([]byte, []int) {
 	return file_order_service_v1_order_service_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CreateOrderRequest) GetUserId() int64 {
+func (x *CreateOrderRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
-func (x *CreateOrderRequest) GetMarketId() int64 {
+func (x *CreateOrderRequest) GetMarketId() uint64 {
 	if x != nil {
 		return x.MarketId
 	}
@@ -286,14 +286,14 @@ func (x *CreateOrderRequest) GetOrderType() OrderType {
 	return OrderType_ORDER_TYPE_UNSPECIFIED
 }
 
-func (x *CreateOrderRequest) GetPrice() float64 {
+func (x *CreateOrderRequest) GetPrice() int64 {
 	if x != nil {
 		return x.Price
 	}
 	return 0
 }
 
-func (x *CreateOrderRequest) GetQuantity() float64 {
+func (x *CreateOrderRequest) GetQuantity() int64 {
 	if x != nil {
 		return x.Quantity
 	}
@@ -302,7 +302,7 @@ func (x *CreateOrderRequest) GetQuantity() float64 {
 
 type CreateOrderResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	OrderId       int64                  `protobuf:"varint,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	OrderId       string                 `protobuf:"bytes,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
 	OrderStatus   OrderStatus            `protobuf:"varint,2,opt,name=order_status,json=orderStatus,proto3,enum=order.OrderStatus" json:"order_status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -338,11 +338,11 @@ func (*CreateOrderResponse) Descriptor() ([]byte, []int) {
 	return file_order_service_v1_order_service_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *CreateOrderResponse) GetOrderId() int64 {
+func (x *CreateOrderResponse) GetOrderId() string {
 	if x != nil {
 		return x.OrderId
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateOrderResponse) GetOrderStatus() OrderStatus {
@@ -358,19 +358,19 @@ const file_order_service_v1_order_service_proto_rawDesc = "" +
 	"\n" +
 	"$order_service/v1/order_service.proto\x12\x05order\"K\n" +
 	"\x15GetOrderStatusRequest\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\x03R\aorderId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x03R\x06userId\"D\n" +
+	"\border_id\x18\x01 \x01(\tR\aorderId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\"D\n" +
 	"\x16GetOrderStatusResponse\x12*\n" +
 	"\x06status\x18\x01 \x01(\x0e2\x12.order.OrderStatusR\x06status\"\xad\x01\n" +
 	"\x12CreateOrderRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n" +
-	"\tmarket_id\x18\x02 \x01(\x03R\bmarketId\x12/\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n" +
+	"\tmarket_id\x18\x02 \x01(\x04R\bmarketId\x12/\n" +
 	"\n" +
 	"order_type\x18\x03 \x01(\x0e2\x10.order.OrderTypeR\torderType\x12\x14\n" +
-	"\x05price\x18\x04 \x01(\x01R\x05price\x12\x1a\n" +
-	"\bquantity\x18\x05 \x01(\x01R\bquantity\"g\n" +
+	"\x05price\x18\x04 \x01(\x03R\x05price\x12\x1a\n" +
+	"\bquantity\x18\x05 \x01(\x03R\bquantity\"g\n" +
 	"\x13CreateOrderResponse\x12\x19\n" +
-	"\border_id\x18\x01 \x01(\x03R\aorderId\x125\n" +
+	"\border_id\x18\x01 \x01(\tR\aorderId\x125\n" +
 	"\forder_status\x18\x02 \x01(\x0e2\x12.order.OrderStatusR\vorderStatus*\xaf\x01\n" +
 	"\vOrderStatus\x12\x1c\n" +
 	"\x18ORDER_STATUS_UNSPECIFIED\x10\x00\x12\x18\n" +

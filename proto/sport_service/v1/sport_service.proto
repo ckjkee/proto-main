@@ -7,7 +7,7 @@ option go_package = "proto-main/gen/sport_service/v1;sport_v1";
 import "google/protobuf/timestamp.proto";
 
 message Market {
-    int64 id = 1;
+    uint64 id = 1;
     string symbol = 2;
     bool enabled = 3;
     google.protobuf.Timestamp deleted_at = 4;
